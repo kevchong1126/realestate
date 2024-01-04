@@ -15,7 +15,8 @@ const Hero = (props, refParent) => {
     
     const navigate = () => {
         gsap.to(window, {duration: 1.5, scrollTo: offset2})
-    }
+    };
+    
     const splitText = arr => {
         
         return (

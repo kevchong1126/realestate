@@ -147,7 +147,8 @@ const Track = () => {
         global.text3.current,
         global.text4.current,
         global.text5.current,
-        global.text6.current]);
+        global.text6.current,
+        offset2,offset3,offset4]);
 
 
   return (
