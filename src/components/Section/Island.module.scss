@@ -1,0 +1,64 @@
+@use '../../scss/variables' as *;
+@use '../../scss/mixins' as *;
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    flex: 0 0 100vw;
+    background-color: $brown;
+    color: $white1;
+    
+
+    .content{
+        @include content;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.videoContainer{
+    @include centerAbsolute;
+    width: 800px;
+    height: 300px;
+    overflow: hidden;
+
+    video{
+        @include img;
+    }
+}
+
+.textContainer{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    cursor: default;
+    
+    .top{
+        text-align: center;
+        margin-bottom: $spacing-nm-2;
+        
+        p{
+            font-size: $txt-sm-3;
+            
+            @include quicksand;
+        }
+    }
+
+    .middle{
+        font-size: $txt-rsp-5;
+        line-height: 1;
+        text-align: center;
+
+        p{
+            letter-spacing: 1px;
+        }
+    }
+
+    .bottom{
+        font-size: $txt-sm-4;
+        line-height: 1;
+        text-align: center;
+    }
+}

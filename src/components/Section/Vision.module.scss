@@ -1,0 +1,58 @@
+@use '../../scss/variables' as *;
+@use '../../scss/mixins' as *;
+
+.container{
+    @include container; 
+    width: fit-content;
+    background-color: $white3;
+
+    .content{
+        @include content;
+        
+
+        .header{
+            font-size: $txt-sm-3;
+            margin-bottom: $spacing-sm-3;
+            @include quicksand;
+        }
+
+        .paragraph{
+            font-size: $txt-l-1;
+            line-height: 1;
+            white-space: nowrap;
+            
+            span{
+                opacity: 0;
+            }
+        }
+
+        .imgContainer{
+            width: 300px;
+            height: 200px;
+            margin-bottom: $spacing-sm-2;
+            position: relative;
+
+            img{
+                @include img;
+                position: relative;
+                z-index: 2;
+                clip-path: inset(0 100% 0 0);
+            }
+
+            .overlay{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background-color: $brown;
+                clip-path: inset(0 100% 0 0);
+            }
+        }
+
+        .caption{
+            font-size: $txt-sm-3;
+            @include quicksand;
+        }
+    }
+}

@@ -1,0 +1,105 @@
+@use '../../scss/variables' as *;
+@use '../../scss/mixins' as *;
+
+.container{
+    width: fit-content;
+    height: 100vh; 
+    background-color: $white3;
+    
+    .content{
+        @include content;
+        padding-right: $spacing-l-3;
+        padding-bottom: $spacing-nm-2;
+        display: flex;
+        gap: $spacing-l-3;
+    }
+}
+
+.animation{
+    writing-mode: vertical-lr;
+    text-orientation: sideways-right;
+    white-space: nowrap;
+    transform: rotate(-180deg);
+
+    p{
+        font-size: $txt-l-3;
+        animation: anim 7s linear infinite;
+    }
+}
+
+.locationContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    .top{
+        white-space: nowrap;
+        text-align: center;
+
+        .heading{
+            font-size: $txt-sm-3;
+            margin-bottom: $spacing-sm-3;
+            @include quicksand;
+        }
+
+        .bigContainer{
+            font-size: $txt-nm-4;
+            margin-bottom: $spacing-sm-3;
+
+            h2{
+                line-height: 1;
+                font-weight: 400;
+
+                &:nth-of-type(3){
+                    color: $brown;
+                }
+                
+                span{
+                    opacity: 0;
+                }
+            }
+
+        }
+
+        .smallContainer{
+            font-size: $txt-sm-3;
+            color: $gray2;
+            @include quicksand;
+        }
+    }
+
+    .bottom{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: $spacing-sm-2;
+
+        p{
+            color: $brown;
+            font-size: $txt-sm-3;
+            cursor: pointer;
+            @include quicksand;
+        }
+
+        .circle{
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: $brown;
+            @include flexCenter;
+            cursor: pointer;
+            
+            p{
+                color: $white1;
+            }
+        }
+    }
+}
+@keyframes anim{
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(-80%);
+    }
+}

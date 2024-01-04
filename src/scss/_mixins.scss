@@ -1,0 +1,47 @@
+@use './variables' as *;
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Quicksand:wght@300;400;700&display=swap');
+
+@mixin container{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+@mixin content{
+    width: 100%;
+    height: 100%;
+    padding-inline: $spacing-nm-2;
+    margin-inline: auto;
+    padding-top: $spacing-l-2;
+}
+
+@mixin flexCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin centerAbsolute{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@mixin transition($property: all, $duration: 0.3s, $ease: ease-in-out){
+    transition: $property $duration $ease;
+}
+
+@mixin cormorant{
+    font-family: 'Cormorant Garamond', serif;
+}
+
+@mixin quicksand{
+    font-family: 'Quicksand', sans-serif;
+}

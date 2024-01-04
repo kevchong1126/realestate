@@ -1,0 +1,90 @@
+@use '../../scss/variables' as *;
+@use '../../scss/mixins' as *;
+
+.container{
+    position: relative;
+    width: 100vw;
+    height: 90vh;
+    color: $white1;
+    padding-block: $spacing-nm-1;
+    background-color: $white3;
+    overflow: hidden;
+
+    .imgContainer{
+        position: absolute;
+        width: 100%;
+        height: 95%;
+        bottom: 0;
+        left: 0;
+
+        .overlay{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba($color: $black, $alpha: 0.3);
+        }
+        img{
+            @include img;
+        }
+    }
+    .content{
+        @include content;
+        padding-top: $spacing-nm-1;
+        position: relative;
+        z-index: 2;
+    }
+}
+
+.heading{
+    font-size: $txt-l-4;
+    text-align: center;
+    margin-bottom: $spacing-nm-2;
+}
+
+.btnContainer{
+    display: flex;
+    justify-content: center;
+    margin-bottom: $spacing-nm-1;
+    
+    
+    .circle{
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background-color: $brown;
+        @include flexCenter;
+        @include transition;
+        cursor: pointer;
+        
+        &:hover{
+            background-color: $white1;
+            color: $black;
+        }
+    }
+}
+
+.help{
+    text-align: center;
+    @include quicksand;
+}
+
+.line{
+    width: 100%;
+    height: 1px;
+    background-color: $gray1;
+    margin-top: $spacing-l-2;
+    margin-bottom: $spacing-sm-2;
+}
+.links{
+    display: flex;
+    justify-content: space-between;
+    font-size: $txt-sm-3;
+    @include quicksand;
+
+    .col{
+        display: flex;
+        flex-direction: column;
+    }
+}

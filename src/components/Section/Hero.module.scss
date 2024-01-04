@@ -1,0 +1,122 @@
+@use '../../scss/variables' as *;
+@use '../../scss/mixins' as *;
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    flex: 0 0 100vw;
+    position: relative;
+    color: $white1;
+    z-index: -1;
+    overflow: hidden;
+
+    .imgContainer {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+
+        img {
+            @include img;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            transform: scale(1.05);
+        }
+
+        .overlay {
+            width: 100%;
+            height: 100%;
+            background-color: rgba($color: $black, $alpha: 0.4);
+        }
+    }
+
+    .content {
+        @include content;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+
+.top{
+    flex-direction: column;
+    @include flexCenter;
+
+    .big{
+        font-size: $txt-rsp-2;
+        text-align: center;
+
+        h1{
+            font-weight: 300;
+            line-height: 0.8;
+
+            span{
+                opacity: 0;
+            }
+        }
+        
+    }
+
+    .small{
+        margin-top: $spacing-sm-2;
+        font-size: $txt-nm-2;
+        text-align: center;
+        font-weight: 500;
+        @include quicksand;
+    }
+}
+
+.bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: $spacing-nm-1;
+    font-size: $txt-sm-2;
+    @include quicksand;
+
+    .left{
+        display: flex;
+        gap: $spacing-nm-2;
+
+        .call{
+            display: flex;
+            align-items: center;
+            gap: $spacing-sm-1;
+            height: fit-content;
+
+            .circle{
+                width: 7px;
+                height: 7px;
+                border-radius: 50%;
+                background-color: $white1;
+            }
+        }
+        
+
+        .number{
+            font-size: $txt-sm-1;
+        }
+    }   
+
+    .right{
+
+        .circle{
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: $brown;
+            @include flexCenter;
+            @include transition;
+            cursor: pointer;
+        
+            &:hover{
+                background-color: $white1;
+                color: $black;
+            }
+        }
+    }
+}

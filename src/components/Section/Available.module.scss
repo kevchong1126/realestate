@@ -1,0 +1,101 @@
+@use '../../scss/variables' as *;
+@use '../../scss/mixins' as *;
+
+.container{
+    width: 100vw;
+    height: auto;
+    flex: 0 0 100vw;
+    background-color: $white3;
+    
+    .content{
+        @include content;
+    }
+}
+
+.topContainer{
+
+    .char{
+        font-size: $txt-sm-3;
+        margin-bottom: $spacing-sm-3;
+        @include quicksand;
+    }
+
+    .headingContainer{
+        font-size: $txt-l-3;
+
+        h1{
+            line-height: 0.8;
+            font-weight: 300;
+
+            span{
+                opacity: 0;
+            }
+        }
+    }
+
+    .line{
+        width: 100%;
+        height: 1px;
+        background-color: $gray1;
+        margin-block: $spacing-nm-1;
+    }
+}
+
+.btns{
+    display: flex;
+    gap: $spacing-nm-1;
+
+    .btnContainer{
+        display: flex;
+        align-items: center;
+        gap: $spacing-sm-2;
+        cursor: pointer;
+        
+        p{
+            font-size: $txt-sm-2;
+            @include quicksand;
+        }
+
+        .circle{
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: $brown;
+            @include flexCenter;
+
+            p{
+                color: $white1;
+            }
+        }
+
+        .circle2{
+            @extend .circle;
+            background-color: $black;
+        }
+    }
+}
+
+.grid{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-nm-1;
+    margin-top: $txt-l-5;
+    @include quicksand;
+
+    .row{
+        display: flex;
+        justify-content: space-between;
+
+        .col{
+            font-size: $txt-sm-2;
+        }
+    }
+
+    .line{
+        width: 100%;
+        height: 1px;
+        background-color: $gray1;
+    }
+}

@@ -1,0 +1,21 @@
+@use '../../scss/variables' as *;
+@use '../../scss/mixins' as *;
+
+.wrapper{
+    position: fixed;
+    top: $spacing-nm-1;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 99;
+    
+    .list{
+        display: flex;
+        gap: $spacing-nm-4;
+        color: $white1;
+        font-size: $txt-sm-3;
+
+        .link{
+            cursor: pointer;
+        }
+    }
+}

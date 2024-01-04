@@ -1,0 +1,135 @@
+@use '../../scss/variables' as *;
+@use '../../scss/mixins' as *;
+
+.container{
+    @include container;
+    width: fit-content;
+    height: 100vh;
+    background-color: $white3;
+    @include quicksand;
+
+    .line{
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: $gray1;
+    }
+
+    .content{
+        @include content;
+        padding-left: $spacing-sm-4;
+        padding-right: $spacing-l-2;
+        padding-bottom: $spacing-nm-4;
+        display: flex;
+        gap: $spacing-sm-3;
+        
+    }
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 500px;
+
+    .top{
+        display: flex;
+        gap: $spacing-l-2;
+        white-space: nowrap;
+        font-size: $txt-sm-2;
+
+        .col:nth-of-type(2){
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+    }
+
+    .bottom{
+
+        .char{
+            font-size: $txt-sm-3;
+        }
+
+        .heading{
+            font-size: $txt-l-3;
+            font-weight: 400;
+            line-height: 1;
+            margin-bottom: $spacing-sm-2;
+            @include cormorant;
+
+            span{
+                opacity: 0;
+            }
+        }
+
+        .linkContainer{
+            display: flex;
+            align-items: center;
+            gap: $spacing-sm-4;
+            font-size: $txt-sm-3;
+            cursor: pointer;
+            
+            p{
+                color: $brown;
+            }
+
+            .circle{
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: $brown;
+                @include flexCenter;
+
+                p{
+                    color: $white1;
+                }
+            }
+        }
+    }
+}
+
+.image1{
+    width: 700px;
+    height: 100%;
+    flex: 0 0 800px;
+    overflow: hidden;
+
+    img{
+        @include img;
+    }
+}
+
+.img2{
+    width: 500px;
+    height: 100%;
+    flex: 0 0 500px;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm-2;
+
+    .row{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        img{
+            @include img;
+            height: 100%;
+        }
+    }
+    
+}
+
+.img3{
+    width: 700px;
+    height: 100%;
+    flex: 0 0 800px;
+    overflow: hidden;
+
+    img{
+        @include img;
+    }
+}
