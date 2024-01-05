@@ -1,6 +1,7 @@
-import React, { useContext, forwardRef } from 'react'
+import React, { useContext } from 'react'
 import styles from './Hero.module.scss'
 import { context } from '../../Context'
+
 /*Images*/
 import img1 from '../../images/bg.webp'
 
@@ -8,13 +9,12 @@ import { gsap } from 'gsap'
 import { ScrollToPlugin } from 'gsap/all'
 gsap.registerPlugin(ScrollToPlugin);
 
-const Hero = (props, refParent) => {
-    const { sections, img1 : imgRef, text1 } = refParent;
+const Hero = () => {
+    const {  sections, img1 : imgRef, text1 } = useContext(context);
     const text = ['Comfort and', 'elegance at', 'ibiza real estate'];
-    const {offset2} = useContext(context);
     
     const navigate = () => {
-        gsap.to(window, {duration: 1.5, scrollTo: offset2})
+        gsap.to(window, {duration: 1.5, scrollTo: sections.current[1].offsetLeft})
     };
     
     const splitText = arr => {
@@ -79,4 +79,4 @@ const Hero = (props, refParent) => {
   )
 }
 
-export default forwardRef(Hero)
+export default Hero

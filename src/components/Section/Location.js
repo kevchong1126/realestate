@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from './Location.module.scss'
+import { context } from '../../Context';
 
-const Location = (prop, refParent) => {
-    const { sections, text5 } = refParent;
+const Location = () => {
+    const { sections, text5 } = useContext(context);
 
     const text = ['Escape to', "Nature's", 'Paradise'];
 
@@ -59,4 +60,4 @@ const Location = (prop, refParent) => {
   )
 }
 
-export default React.forwardRef(Location)
+export default Location

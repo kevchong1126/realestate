@@ -1,11 +1,12 @@
-import React, { forwardRef } from 'react'
+import React, { useContext } from 'react'
 import styles from './Building.module.scss'
+import { context } from '../../Context'
 
 /*Images*/
 import img1 from '../../images/bg1.webp'
 
-const Building = (props, refParent) => {
-    const { sections, img5 } = refParent;
+const Building = () => {
+    const { sections, img5 } = useContext(context);
 
   return (
     <div className={styles.container} ref={el => sections.current.push(el)}>
@@ -16,4 +17,4 @@ const Building = (props, refParent) => {
   )
 }
 
-export default forwardRef(Building)
+export default Building

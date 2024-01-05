@@ -1,8 +1,9 @@
-import React, { forwardRef } from 'react'
+import React, { useContext } from 'react'
 import styles from './Available.module.scss'
+import { context } from '../../Context';
 
-const Available = (props, refParent) => {
-    const { sections, text6 } = refParent;
+const Available = () => {
+    const { sections, text6 } = useContext(context);
 
     const text = ['Discover our', 'Available apartments' ];
 
@@ -172,4 +173,4 @@ const Available = (props, refParent) => {
   )
 }
 
-export default forwardRef(Available)
+export default Available

@@ -16,14 +16,14 @@ export const ScrubTo = (container, target, trigger, start, end, scrub, propertie
     })
 }
 
-export const AnimTo = (container, target, trigger, start, toggle, properties) => {
+export const AnimTo = (container, target, trigger, start, properties) => {
 
     gsap.to(target, {
         ...properties,
         scrollTrigger: {
             trigger: trigger,
             start: start,
-            toggleActions: toggle,
+            toggleActions: 'play none none reset',
             containerAnimation: container
         }
     })

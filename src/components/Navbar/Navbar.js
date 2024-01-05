@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useRef } from 'react'
 import styles from './Navbar.module.scss'
 import { context } from '../../Context'
 
@@ -7,7 +7,8 @@ import { ScrollToPlugin } from 'gsap/all'
 gsap.registerPlugin(ScrollToPlugin);
 
 const Navbar = () => {
-  const { offset1, offset2, offset3, offset4} = useContext(context);
+  const { sections, list} = useContext(context);
+  const ul = useRef();
 
   const navigate = offset => {
     gsap.to(window, {
@@ -18,11 +19,11 @@ const Navbar = () => {
 
   return (
     <div className={styles.wrapper}>
-        <ul className={styles.list}>
-            <li className={styles.link} onClick={() => navigate(offset1)}>Home</li>
-            <li className={styles.link} onClick={() => navigate(offset2)}>Apartments</li>
-            <li className={styles.link} onClick={() => navigate(offset3)}>Location</li>
-            <li className={styles.link} onClick={() => navigate(offset4)}>Availability</li>
+        <ul className={styles.list} ref={list}>
+            <li className={styles.link} onClick={() => navigate(sections.current[0].offsetLeft)}>Home</li>
+            <li className={styles.link} onClick={() => navigate(sections.current[2].offsetLeft)}>Apartments</li>
+            <li className={styles.link} onClick={() => navigate(sections.current[3].offsetLeft)}>Location</li>
+            <li className={styles.link} onClick={() => navigate(sections.current[7].offsetLeft)}>Availability</li>
             <li className={styles.author}>By: Kevin Chong</li>
         </ul>
     </div>

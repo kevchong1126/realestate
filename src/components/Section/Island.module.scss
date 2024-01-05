@@ -1,5 +1,6 @@
 @use '../../scss/variables' as *;
 @use '../../scss/mixins' as *;
+@use '../../scss/breakpoints' as *;
 
 .container{
     width: 100vw;
@@ -14,6 +15,11 @@
         @include content;
         display: flex;
         justify-content: center;
+
+        @include custom-screen($breakpoint: 800px){
+            align-items: center;
+            padding-top: 0;
+        }
     }
 }
 
@@ -22,6 +28,10 @@
     width: 800px;
     height: 300px;
     overflow: hidden;
+
+    @include custom-screen($breakpoint: 800px){
+        width: 100%;
+    }
 
     video{
         @include img;
@@ -47,9 +57,17 @@
     }
 
     .middle{
-        font-size: $txt-rsp-5;
+        font-size: $txt-l-5;
         line-height: 1;
         text-align: center;
+
+        @include xxl-screen{
+            font-size: $txt-rsp-5;
+        }
+
+        @include custom-screen($breakpoint: 550px){
+            font-size: $txt-l-1;
+        }
 
         p{
             letter-spacing: 1px;
@@ -60,5 +78,13 @@
         font-size: $txt-sm-4;
         line-height: 1;
         text-align: center;
+
+        @include custom-screen($breakpoint: 550px){
+            font-size: $txt-sm-3;
+        }
+
+        @include custom-screen($breakpoint: 400px){
+            font-size: $txt-sm-2;
+        }
     }
 }

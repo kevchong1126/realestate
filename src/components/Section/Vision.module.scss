@@ -1,28 +1,51 @@
 @use '../../scss/variables' as *;
 @use '../../scss/mixins' as *;
+@use '../../scss/breakpoints' as *;
 
 .container{
     @include container; 
     width: fit-content;
+    height: 100vh;
     background-color: $white3;
 
+    @include custom-screen($breakpoint: 800px){
+        width: 100vw;
+    }
     .content{
         @include content;
         
+        @include custom-screen($breakpoint: 800px){
+            @include flexCenter;
+            flex-direction: column;
+        }
 
         .header{
             font-size: $txt-sm-3;
             margin-bottom: $spacing-sm-3;
             @include quicksand;
+
+            
         }
 
         .paragraph{
             font-size: $txt-l-1;
             line-height: 1;
             white-space: nowrap;
-            
+
+            @include custom-screen($breakpoint: 800px){
+                font-size: $txt-nm-3;
+                text-align: center;
+            }
+
+            @include sm-screen{
+                font-size: $txt-sm-4;
+            }
             span{
                 opacity: 0;
+
+                @include custom-screen($breakpoint: 800px){
+                    opacity: 1;
+                }
             }
         }
 
@@ -32,11 +55,20 @@
             margin-bottom: $spacing-sm-2;
             position: relative;
 
+            @include sm-screen{
+                width: 250px;
+                height: 150px;
+            }
+
             img{
                 @include img;
                 position: relative;
                 z-index: 2;
                 clip-path: inset(0 100% 0 0);
+
+                @include custom-screen($breakpoint: 800px){
+                    clip-path: inset(0 0 0 0);
+                }
             }
 
             .overlay{
@@ -53,6 +85,14 @@
         .caption{
             font-size: $txt-sm-3;
             @include quicksand;
+
+            @include custom-screen($breakpoint: 800px){
+                font-size: $txt-sm-2;
+            }
+
+            @include sm-screen{
+                font-size: $txt-sm-1;
+            }
         }
     }
 }

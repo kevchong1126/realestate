@@ -1,17 +1,28 @@
 @use '../../scss/variables' as *;
 @use '../../scss/mixins' as *;
+@use '../../scss/breakpoints' as *;
 
 .container{
     width: fit-content;
     height: 100vh; 
     background-color: $white3;
     
+    @include custom-screen($breakpoint: 800px){
+        width: 100vw;
+        height: auto
+    }
+
     .content{
         @include content;
         padding-right: $spacing-l-3;
         padding-bottom: $spacing-nm-2;
         display: flex;
         gap: $spacing-l-3;
+
+        @include custom-screen($breakpoint: 800px){
+            display: block;
+            padding-inline: $spacing-sm-2;
+        }
     }
 }
 
@@ -21,9 +32,20 @@
     white-space: nowrap;
     transform: rotate(-180deg);
 
+    @include custom-screen($breakpoint: 800px){
+        writing-mode: unset;
+        text-orientation: unset;
+        transform: rotate(0deg);
+    }
+
     p{
         font-size: $txt-l-3;
         animation: anim 7s linear infinite;
+
+        @include custom-screen($breakpoint: 800px){
+            animation: animH 15s linear infinite;
+        }
+
     }
 }
 
@@ -31,6 +53,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    
+    @include custom-screen($breakpoint: 800px){
+        margin-top: $spacing-nm-2;
+        align-items: center;
+    }
 
     .top{
         white-space: nowrap;
@@ -56,6 +83,10 @@
                 
                 span{
                     opacity: 0;
+
+                    @include custom-screen($breakpoint: 800px){
+                        opacity: 1;
+                    }
                 }
             }
 
@@ -65,6 +96,10 @@
             font-size: $txt-sm-3;
             color: $gray2;
             @include quicksand;
+
+            @include custom-screen($breakpoint: 800px){
+                margin-bottom: $spacing-nm-1;
+            }
         }
     }
 
@@ -101,5 +136,14 @@
     }
     100%{
         transform: translateY(-80%);
+    }
+}
+
+@keyframes animH{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-50%);
     }
 }

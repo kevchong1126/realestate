@@ -1,5 +1,7 @@
+@use '../../scss/breakpoints' as *;
 @use '../../scss/variables' as *;
 @use '../../scss/mixins' as *;
+
 
 .container {
     width: 100vw;
@@ -39,6 +41,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        max-width: 1768px;
     }
 }
 
@@ -47,8 +50,12 @@
     @include flexCenter;
 
     .big{
-        font-size: $txt-rsp-2;
+        font-size: $txt-l-5;
         text-align: center;
+
+        @include xxl-screen{
+            font-size: $txt-rsp-2;
+        }
 
         h1{
             font-weight: 300;
@@ -56,6 +63,10 @@
 
             span{
                 opacity: 0;
+
+                @include custom-screen($breakpoint: 800px){
+                    opacity: 1;
+                }
             }
         }
         
@@ -67,6 +78,14 @@
         text-align: center;
         font-weight: 500;
         @include quicksand;
+
+        @include nm-screen{
+            font-size: $txt-sm-4;
+        }
+
+        @include sm-screen{
+            font-size: $txt-sm-2;
+        }
     }
 }
 
@@ -77,6 +96,12 @@
     margin-bottom: $spacing-nm-1;
     font-size: $txt-sm-2;
     @include quicksand;
+
+    @include sm-screen{
+        flex-direction: column;
+        align-items: center;
+        gap: $spacing-sm-1;
+    }
 
     .left{
         display: flex;
@@ -112,7 +137,12 @@
             @include flexCenter;
             @include transition;
             cursor: pointer;
-        
+            
+            @include custom-screen($breakpoint: 800px){
+                width: 80px;
+                height: 80px;
+            }
+
             &:hover{
                 background-color: $white1;
                 color: $black;

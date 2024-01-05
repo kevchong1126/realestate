@@ -8,36 +8,36 @@ $sizes : (
 
 @mixin sm-screen{
     @media (max-width: map-get($sizes, "sm")){
-        @include content
+        @content;
     }
-}
+};
 
 @mixin nm-screen{
     @media (max-width: map-get($sizes, "nm")){
-        @include content
+        @content;
     }
-}
+};
 
 @mixin l-screen{
     @media (max-width: map-get($sizes, "l")){
-        @include content
+        @content;
     }
-}
+};
 
 @mixin xl-screen{
     @media (max-width: map-get($sizes, "xl")){
-        @include content
+        @content;
     }
-}
+};
 
 @mixin xxl-screen{
     @media (max-width: map-get($sizes, "xxl")){
-        @include content
+        @content;
     }
-}
+};
 
 @mixin custom-screen($breakpoint: 2000px){
     @media (max-width: $breakpoint){
-        @include content
+        @content;
     }
-}
+};

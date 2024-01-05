@@ -1,4 +1,4 @@
-import React, { useContext, forwardRef } from 'react'
+import React, { useContext } from 'react'
 import styles from './Apartments.module.scss'
 import { context } from '../../Context'
 
@@ -12,12 +12,11 @@ import { gsap } from 'gsap'
 import { ScrollToPlugin } from 'gsap/all'
 gsap.registerPlugin(ScrollToPlugin);
 
-const Apartments = (props, refParent) => {
-  const { sections, text3, img3: imgRef } = refParent;
-  const { offset4 } = useContext(context);
+const Apartments = (props) => {
+  const { sections, text3, img3: imgRef } = useContext(context);
 
   const navigate = () => {
-    gsap.to(window, {duration: 1.5, scrollTo: offset4})
+    gsap.to(window, {duration: 1.5, scrollTo: sections.current[7].offsetLeft})
   };
 
   const text = ['An oasis', 'of nature'];
@@ -96,4 +95,4 @@ const Apartments = (props, refParent) => {
   )
 }
 
-export default forwardRef(Apartments)
+export default Apartments

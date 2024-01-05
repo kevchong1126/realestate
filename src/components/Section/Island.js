@@ -1,11 +1,12 @@
-import React, { forwardRef } from 'react'
+import React, { useContext } from 'react'
 import styles from './Island.module.scss'
+import { context } from '../../Context'
 
 /*Images*/
 import vid1 from '../../images/video.mp4'
 
-const Island = (props, refParent) => {
-    const { sections, container4, img4, text4 } = refParent;
+const Island = () => {
+    const { sections, container4, img4, text4 } = useContext(context);
 
   return (
     <div className={styles.container} ref={el => sections.current.push(el)}>
@@ -39,4 +40,4 @@ const Island = (props, refParent) => {
   )
 }
 
-export default forwardRef(Island)
+export default Island

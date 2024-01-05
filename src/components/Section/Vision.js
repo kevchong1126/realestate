@@ -1,11 +1,12 @@
-import React, { useRef, forwardRef } from 'react'
+import React, { useContext } from 'react'
 import styles from './Vision.module.scss'
+import { context } from '../../Context'
 
 /*images*/
 import img1 from '../../images/small1.webp'
 
-const Vision = (props, refParent) => {
-    const { sections, img2: imgRef, overlay2, text2 } = refParent;
+const Vision = () => {
+    const { sections, img2: imgRef, overlay2, text2 } = useContext(context);
     
     const text = ['OUR VISION FOR LUXURY', 'LIVING ON WONDERLAND IS TO', 'CREATE A ONE-OF-A-KIND', 'DEVELOPMENT THAT',
                     'COMBINES COMFORTABILITY', 'WITH LUXURY'
@@ -50,4 +51,4 @@ const Vision = (props, refParent) => {
   )
 }
 
-export default forwardRef(Vision)
+export default Vision

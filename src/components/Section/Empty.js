@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from './Empty.module.scss'
+import { context } from '../../Context';
 
-const Empty = (prop, ref) => {
-    const { sections } = ref;
+const Empty = ( ) => {
+    const { sections } = useContext(context);
 
   return (
     <div className={styles.container} ref={el => sections.current.push(el)}>
@@ -11,4 +12,4 @@ const Empty = (prop, ref) => {
   )
 }
 
-export default React.forwardRef(Empty)
+export default Empty

@@ -1,5 +1,6 @@
 @use '../../scss/variables' as *;
 @use '../../scss/mixins' as *;
+@use '../../scss/breakpoints' as *;
 
 .container{
     width: 100vw;
@@ -23,12 +24,28 @@
     .headingContainer{
         font-size: $txt-l-3;
 
+        @include xl-screen{
+            font-size: $txt-l-1;
+        }
+
+        @include l-screen{
+            font-size: $txt-nm-4;
+        }
+
+        @include custom-screen($breakpoint: 800px){
+            font-size: $txt-nm-2;
+        }
+
         h1{
             line-height: 0.8;
             font-weight: 300;
 
             span{
                 opacity: 0;
+
+                @include custom-screen($breakpoint: 800px){
+                    opacity: 1;
+                }
             }
         }
     }
@@ -87,6 +104,14 @@
     .row{
         display: flex;
         justify-content: space-between;
+
+        @include custom-screen($breakpoint: 800px){
+            font-size: $txt-sm-3;
+        }
+        
+        @include sm-screen{
+            font-size: $txt-sm-2;
+        }
 
         .col{
             font-size: $txt-sm-2;
