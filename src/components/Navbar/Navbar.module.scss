@@ -1,5 +1,6 @@
 @use '../../scss/variables' as *;
 @use '../../scss/mixins' as *;
+@use '../../scss/breakpoints' as *;
 
 .wrapper{
     position: fixed;
@@ -8,6 +9,9 @@
     transform: translate(-50%);
     z-index: 99;
     
+    @include custom-screen($breakpoint: 600px){
+        display: none;
+    }
     .list{
         display: flex;
         gap: $spacing-nm-4;
@@ -16,6 +20,11 @@
 
         .link{
             cursor: pointer;
+        }
+
+        .author{
+            font-size: $txt-sm-2;
+            width: max-content;
         }
     }
 }
