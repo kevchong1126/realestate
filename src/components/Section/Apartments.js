@@ -16,7 +16,7 @@ const Apartments = (props) => {
   const { sections, text3, img3: imgRef } = useContext(context);
 
   const navigate = () => {
-    gsap.to(window, {duration: 1.5, scrollTo: sections.current[7].offsetLeft})
+    gsap.to(window, {duration: 1.5, scrollTo: sections.current[7].offsetLeft});
   };
 
   const text = ['An oasis', 'of nature'];

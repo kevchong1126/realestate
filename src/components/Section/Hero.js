@@ -15,6 +15,7 @@ const Hero = () => {
     
     const navigate = () => {
         gsap.to(window, {duration: 1.5, scrollTo: sections.current[1].offsetLeft})
+        
     };
     
     const splitText = arr => {
